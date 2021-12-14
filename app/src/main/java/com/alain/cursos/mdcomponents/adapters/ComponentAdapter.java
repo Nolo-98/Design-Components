@@ -1,7 +1,11 @@
 package com.alain.cursos.mdcomponents.adapters;
 
 /* *
- David Ortiz
+ * Projecto: MD Components
+ * Daniel Fernandez Guarneros
+ *
+ * Desarrollo de Sofware Multiplataforma 4A
+ * Diseño de Apps
  */
 
 import android.view.LayoutInflater;
