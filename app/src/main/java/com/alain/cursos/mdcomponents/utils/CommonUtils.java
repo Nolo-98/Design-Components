@@ -11,6 +11,7 @@ package com.alain.cursos.mdcomponents.utils;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.alain.cursos.mdcomponents.fragments.AlertDialogFragment;
 import com.alain.cursos.mdcomponents.fragments.BottomNavigationBarFragment;
 import com.alain.cursos.mdcomponents.fragments.ButtonFragment;
 import com.alain.cursos.mdcomponents.fragments.CardFragment;
@@ -59,6 +60,9 @@ public class CommonUtils {
                 break;
             case MenuFragment.TAG:
                 fragment = new MenuFragment();
+                break;
+            case AlertDialogFragment.TAG:
+                fragment = new AlertDialogFragment();
                 break;
         }
 
