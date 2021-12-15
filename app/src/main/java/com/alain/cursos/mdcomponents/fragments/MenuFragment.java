@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.PopupMenu;
 
 import com.alain.cursos.mdcomponents.R;
@@ -30,6 +32,8 @@ public class MenuFragment extends Fragment {
     Unbinder mUnbinder;
     @BindView(R.id.btnMenuPopup)
     MaterialButton btnMenuPopup;
+    @BindView(R.id.actvCourses)
+    AutoCompleteTextView actvCourses;
 
     public static Component getmInstance() {
         mInstance = new Component();
@@ -56,6 +60,14 @@ public class MenuFragment extends Fragment {
             popupMenu.getMenuInflater().inflate(R.menu.menu_bottom_nav, popupMenu.getMenu());
             popupMenu.show();
         });
+
+        String[] courses = new String[]{"Daniel Fernandez Guarneros + Desarrollo de Software Multiplataforma",
+                "Material Design/theming Profesional para Android",
+                "Diseño de Apps 4to Cuatrimestre",
+                "Kotlin 2020"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.item_menu_dropdown,
+                courses);
+        actvCourses.setAdapter(adapter);
 
         return view;
     }
