@@ -2,13 +2,13 @@ package com.alain.cursos.mdcomponents.fragments;
 
 
 import android.os.Bundle;
-
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.alain.cursos.mdcomponents.R;
 import com.alain.cursos.mdcomponents.utils.Component;
@@ -20,6 +20,7 @@ import com.google.android.material.chip.Chip;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
@@ -34,6 +35,10 @@ public class CardFragment extends Fragment {
     Unbinder mUnbinder;
     @BindView(R.id.imgCardLarge)
     AppCompatImageView imgCardLarge;
+    @BindView(R.id.chpSecond)
+    Chip chpSecond;
+    @BindView(R.id.chpThird)
+    Chip chpThird;
 
     public static Component getmInstance() {
         mInstance = new Component();
@@ -65,6 +70,14 @@ public class CardFragment extends Fragment {
                 .apply(options)
                 .into(imgCardLarge);
 
+        chpSecond.setOnCheckedChangeListener((compoundButton, isChecked) -> {
+            if (isChecked){
+                Toast.makeText(getActivity(), "Checked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        chpThird.setOnCloseIconClickListener(view1 -> chpThird.setVisibility(View.GONE));
+
         return view;
     }
 
@@ -74,4 +87,8 @@ public class CardFragment extends Fragment {
         mUnbinder.unbind();
     }
 
+    @OnClick(R.id.chpFirst)
+    public void onViewClicked() {
+        Toast.makeText(getActivity(), "First Chip", Toast.LENGTH_SHORT).show();
+    }
 }
