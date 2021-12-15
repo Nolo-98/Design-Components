@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alain.cursos.mdcomponents.R;
@@ -33,6 +34,8 @@ public class CheckboxFragment extends Fragment {
     CheckBox cbEnable;
     @BindView(R.id.cbEnableIndeterminate)
     IndeterminateCheckBox cbEnableIndeterminate;
+    @BindView(R.id.tvEnableIndeterminate)
+    TextView tvEnableIndeterminate;
 
     public static Component getmInstance() {
         mInstance = new Component();
@@ -59,6 +62,8 @@ public class CheckboxFragment extends Fragment {
             Toast.makeText(getActivity(), status, Toast.LENGTH_SHORT).show();
 
             cbEnableIndeterminate.setIndeterminate(cbEnable.isChecked());
+            tvEnableIndeterminate.setText(cbEnable.isChecked()? R.string.status_enabled_indeterminate :
+                    R.string.status_disabled_indeterminate);
         });
 
         return view;
