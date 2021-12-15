@@ -11,8 +11,10 @@ import android.view.ViewGroup;
 import com.alain.cursos.mdcomponents.R;
 import com.alain.cursos.mdcomponents.utils.Component;
 import com.alain.cursos.mdcomponents.utils.Constants;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
@@ -52,5 +54,13 @@ public class AlertDialogFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         mUnbinder.unbind();
+    }
+
+    @OnClick(R.id.btnDialogInfo)
+    public void onInfoClicked() {
+        new MaterialAlertDialogBuilder(getActivity())
+                .setTitle(R.string.card_message_demo_small)
+                .setPositiveButton(R.string.dialog_ok, null)
+        .show();
     }
 }
